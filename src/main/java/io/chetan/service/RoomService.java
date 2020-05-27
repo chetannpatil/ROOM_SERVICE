@@ -71,4 +71,12 @@ public class RoomService
 		 }
 		 
 	}
+
+	public List<Room> findAllRoomsByPgId(long pgId) 
+	{
+		 System.out.println("\n findAllRoomsByPgId are as follows = \n ");
+
+		 
+		 return roomDao.findRoomByMyPg(pgId);
+	}
 }

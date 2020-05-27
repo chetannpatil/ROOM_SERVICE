@@ -10,4 +10,8 @@ public interface RoomDao extends CrudRepository<Room,Long>
 {
 
 	List<Room> findRoomByRoomNumberAndMyPg(String roomNumber, long myPg);
+
+	//findAllRoomsByPgId myPg
+	List<Room> findRoomByMyPg(long myPg);
 }
+

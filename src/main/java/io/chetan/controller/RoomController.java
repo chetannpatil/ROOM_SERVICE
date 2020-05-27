@@ -1,9 +1,13 @@
 package io.chetan.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,4 +53,33 @@ public class RoomController
 		return roomService.createRoom(room);
 
 	}
+	
+	@GetMapping(value = "findAllRoomsByPgId/{pgId}")
+	public List<Room> findAllRoomsByPgId(@PathVariable("pgId") long pgId)
+	{
+		System.out.println("\n RoomController findAllRoomsByPgId() with pgid = \n"+pgId);
+		
+		return roomService.findAllRoomsByPgId(pgId);
+		
+
+	}
+	
+	@PutMapping(value = "/updateRoom")
+	public void updateRoom(@RequestBody Room room)
+	{
+		System.out.println("\n RoomController updateRoom() with room = \n"+room);
+		
+		roomService.updateRoom(room);
+
+	}
+	
+	//deleteRoom
+	@DeleteMapping(value = "/deleteRoom/{roomId}")
+	public void deleteRoom(@PathVariable("roomId") long roomId)
+	{
+		System.out.println("\n RoomController deleteRoom() with roomid = \n"+roomId);
+
+		 roomService.deleteRoom(roomId);
+	}
+	
 }
